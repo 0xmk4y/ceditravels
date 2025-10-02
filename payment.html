@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Ghana Travel Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#fdbe19', secondary: '#0a2540' } } } }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-[#0a2540] text-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">Ghana Travels</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Payment Information</h2>
+                        <form id="paymentForm">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Cardholder Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-2">Card Number</label>
+                                <input type="text" required placeholder="1234 5678 9012 3456" maxlength="19" class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Expiry Date</label>
+                                    <input type="text" required placeholder="MM/YY" maxlength="5" class="w-full px-4 py-2 border rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">CVV</label>
+                                    <input type="text" required placeholder="123" maxlength="3" class="w-full px-4 py-2 border rounded-lg">
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" required class="mr-2">
+                                    <span class="text-sm">I agree to the terms and conditions</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-[#fdbe19] text-[#0a2540] px-8 py-3 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+                                Complete Payment
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+                        <p><strong>Secure Payment:</strong> Your payment information is encrypted and secure.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                        <h3 class="text-xl font-bold text-[#0a2540] mb-4">Order Summary</h3>
+                        <div id="orderSummary"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#0a2540] text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300">&copy; 2025 Ghana Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const booking = JSON.parse(localStorage.getItem('currentBooking'));
+        if (!booking) window.location.href = 'index.html';
+
+        const summaryHTML = {
+            hotel: `
+                <div class="mb-4">
+                    <h4 class="font-semibold text-[#0a2540]">Hotel Booking</h4>
+                    <div class="text-sm text-gray-600 mt-2">${booking.hotel.name}</div>
+                    <div class="text-sm text-gray-600">${booking.guestName}</div>
+                    <div class="text-sm text-gray-600">${booking.checkIn} to ${booking.checkOut}</div>
+                </div>
+            `,
+            flight: `
+                <div class="mb-4">
+                    <h4 class="font-semibold text-[#0a2540]">Flight Booking</h4>
+                    <div class="text-sm text-gray-600 mt-2">${booking.flight.airline}</div>
+                    <div class="text-sm text-gray-600">${booking.flight.from} → ${booking.flight.to}</div>
+                    <div class="text-sm text-gray-600">${booking.passengerName}</div>
+                </div>
+            `,
+            car: `
+                <div class="mb-4">
+                    <h4 class="font-semibold text-[#0a2540]">Car Rental</h4>
+                    <div class="text-sm text-gray-600 mt-2">${booking.car.name}</div>
+                    <div class="text-sm text-gray-600">${booking.driverName}</div>
+                    <div class="text-sm text-gray-600">${booking.pickupDate} to ${booking.returnDate}</div>
+                </div>
+            `,
+            event: `
+                <div class="mb-4">
+                    <h4 class="font-semibold text-[#0a2540]">Event Booking</h4>
+                    <div class="text-sm text-gray-600 mt-2">${booking.venue.name}</div>
+                    <div class="text-sm text-gray-600">${booking.contactName}</div>
+                    <div class="text-sm text-gray-600">${booking.eventDate} - ${booking.eventType}</div>
+                </div>
+            `
+        };
+
+        document.getElementById('orderSummary').innerHTML = `
+            ${summaryHTML[booking.type]}
+            <div class="border-t pt-4 mt-4">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-lg">Total Amount</span>
+                    <span class="font-bold text-2xl text-[#0a2540]">$${booking.total}</span>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.querySelector('main').innerHTML = `
+                <div class="max-w-2xl mx-auto text-center py-16">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-[#0a2540] mb-4">Payment Successful!</h2>
+                        <p class="text-gray-600 mb-8">Your booking has been confirmed. A confirmation email has been sent to ${booking.email || 'your email'}.</p>
+                        <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                            <div class="text-sm text-gray-600 mb-2">Confirmation Number</div>
+                            <div class="text-2xl font-bold text-[#0a2540]">#GH${Math.floor(Math.random() * 1000000)}</div>
+                        </div>
+                        <a href="index.html" class="inline-block bg-[#fdbe19] text-[#0a2540] px-8 py-3 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+                            Return to Home
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            // Clear booking data
+            localStorage.removeItem('currentBooking');
+        });
+    </script>
+</body>
+</html>

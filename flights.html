@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights in Ghana - Ghana Travel Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#fdbe19',
+                        secondary: '#0a2540',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-[#0a2540] text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">Ghana Travels</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="hotels.html" class="hover:text-[#fdbe19] transition">Hotels</a>
+                    <a href="flights.html" class="text-[#fdbe19]">Flights</a>
+                    <a href="cars.html" class="hover:text-[#fdbe19] transition">Car Rental</a>
+                    <a href="events.html" class="hover:text-[#fdbe19] transition">Events</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-[#0a2540] mb-2">Flights to/from Ghana</h1>
+            <p class="text-gray-600">Book flights to Accra, Kumasi, and other Ghanaian destinations</p>
+        </div>
+
+        <!-- Search Form -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">From</label>
+                    <input type="text" id="fromCity" placeholder="Accra (ACC)" class="w-full px-4 py-2 border rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">To</label>
+                    <input type="text" id="toCity" placeholder="Kumasi (KMS)" class="w-full px-4 py-2 border rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Departure</label>
+                    <input type="date" id="departDate" class="w-full px-4 py-2 border rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Passengers</label>
+                    <select id="passengers" class="w-full px-4 py-2 border rounded-lg">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4+ Passengers</option>
+                    </select>
+                </div>
+                <div class="md:col-span-4">
+                    <button onclick="searchFlights()" class="w-full bg-[#fdbe19] text-[#0a2540] px-8 py-3 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+                        Search Flights
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <p class="text-gray-600"><span id="resultsCount">8</span> flights found</p>
+        </div>
+
+        <!-- Flight Listings -->
+        <div id="flightListings" class="space-y-4">
+            <!-- Flights will be loaded here -->
+        </div>
+    </main>
+
+    <footer class="bg-[#0a2540] text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300">&copy; 2025 Ghana Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/flights.js"></script>
+</body>
+</html>

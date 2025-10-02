@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking - Ghana Travel Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#fdbe19', secondary: '#0a2540' } } } }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-[#0a2540] text-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">Ghana Travels</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <a href="events.html" class="text-[#fdbe19] mb-4 inline-block">&larr; Back to Events</a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-[#0a2540] mb-4">Event Details</h2>
+                    <form id="bookingForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Contact Name</label>
+                                <input type="text" required class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Organization</label>
+                                <input type="text" class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" required class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Phone</label>
+                                <input type="tel" required class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Event Date</label>
+                                <input type="date" required class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Event Type</label>
+                                <select class="w-full px-4 py-2 border rounded-lg">
+                                    <option>Wedding</option>
+                                    <option>Conference</option>
+                                    <option>Party</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Guest Count</label>
+                                <input type="number" required class="w-full px-4 py-2 border rounded-lg">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Special Requirements</label>
+                            <textarea rows="3" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#fdbe19] text-[#0a2540] px-8 py-3 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+                            Continue to Payment
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div>
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-4" id="bookingSummary"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const venue = JSON.parse(localStorage.getItem('selectedVenue'));
+        if (!venue) window.location.href = 'events.html';
+
+        const createStarRating = (rating) => {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) stars += `<span class="${i <= rating ? 'text-[#fdbe19]' : 'text-gray-300'}">★</span>`;
+            return stars;
+        };
+
+        document.getElementById('bookingSummary').innerHTML = `
+            <h3 class="text-xl font-bold text-[#0a2540] mb-4">Venue Summary</h3>
+            <img src="${venue.image}" alt="${venue.name}" class="w-full rounded-lg mb-4">
+            <h4 class="font-semibold text-[#0a2540] mb-2">${venue.name}</h4>
+            <div class="flex items-center mb-4">
+                <div class="flex">${createStarRating(venue.rating)}</div>
+                <span class="text-sm text-gray-600 ml-2">(${venue.reviews})</span>
+            </div>
+            <div class="text-sm text-gray-600 mb-4">Capacity: ${venue.capacity.min}-${venue.capacity.max} guests</div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Venue Fee</span>
+                    <span class="font-semibold">$${venue.price.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Service Fee</span>
+                    <span class="font-semibold">$${(venue.price * 0.1).toFixed(2)}</span>
+                </div>
+            </div>
+            <div class="border-t pt-4 mt-4">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-lg">Total</span>
+                    <span class="font-bold text-2xl text-[#0a2540]">$${(venue.price * 1.1).toFixed(2)}</span>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            localStorage.setItem('currentBooking', JSON.stringify({
+                type: 'event',
+                venue: venue,
+                contactName: e.target[0].value,
+                organization: e.target[1].value,
+                email: e.target[2].value,
+                phone: e.target[3].value,
+                eventDate: e.target[4].value,
+                eventType: e.target[5].value,
+                guestCount: e.target[6].value,
+                total: (venue.price * 1.1).toFixed(2)
+            }));
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>
