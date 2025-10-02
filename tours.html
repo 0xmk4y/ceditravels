@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental in Ghana - Ghana Travel Booking</title>
+    <title>Event Venues in Ghana - Ghana Travel Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,8 +31,8 @@
             <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
               <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
               <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
-              <a href="cars.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
-              <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+              <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+              <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
               <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
             </nav>
     
@@ -58,8 +58,8 @@
             <nav class="flex flex-col space-y-4">
               <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
               <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
-              <a href="cars.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
-              <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+              <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+              <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
               <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
             </nav>
           </div>
@@ -67,36 +67,41 @@
       </header>
 
     <main class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-[#0a2540] mb-8">Car Rental in Ghana</h1>
+        <h1 class="text-3xl font-bold text-[#0a2540] mb-8">Event Venues in Ghana</h1>
 
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
-                    <label class="block text-sm font-medium mb-2">Pick-up Location</label>
+                    <label class="block text-sm font-medium mb-2">Location</label>
                     <input type="text" placeholder="Accra" class="w-full px-4 py-2 border rounded-lg">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-2">Pick-up Date</label>
+                    <label class="block text-sm font-medium mb-2">Event Date</label>
                     <input type="date" class="w-full px-4 py-2 border rounded-lg">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-2">Return Date</label>
-                    <input type="date" class="w-full px-4 py-2 border rounded-lg">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">Car Type</label>
+                    <label class="block text-sm font-medium mb-2">Guest Count</label>
                     <select class="w-full px-4 py-2 border rounded-lg">
-                        <option>Any</option>
-                        <option>Economy</option>
-                        <option>SUV</option>
-                        <option>Luxury</option>
+                        <option>50-100</option>
+                        <option>100-200</option>
+                        <option>200-500</option>
+                        <option>500+</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Event Type</label>
+                    <select class="w-full px-4 py-2 border rounded-lg">
+                        <option>Wedding</option>
+                        <option>Conference</option>
+                        <option>Party</option>
+                        <option>Other</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div id="carListings" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Cars will be loaded here -->
+        <div id="venueListings" class="space-y-6">
+            <!-- Venues will be loaded here -->
         </div>
     </main>
 
@@ -106,6 +111,6 @@
         </div>
     </footer>
 
-    <script src="js/cars.js"></script>
+    <script src="js/events.js"></script>
 </body>
 </html>
