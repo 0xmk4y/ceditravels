@@ -1,116 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Venues in Ghana - Ghana Travel Booking</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#fdbe19',
-                        secondary: '#0a2540',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Venues in Ghana - Ghana Travel Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#fdbe19',
+            secondary: '#0a2540',
+          }
         }
-    </script>
+      }
+    }
+  </script>
 </head>
+
 <body class="bg-gray-50">
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 max-w-7xl">
-          <div class="flex items-center justify-between py-4 relative">
-            <!-- Brand -->
-            <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">
-              <img src="images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2">
-            </a>
-    
-            <!-- Center Nav -->
-            <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
-              <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
-              <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
-              <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
-              <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
-              <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
-            </nav>
-    
-            <!-- Login Button (Right) -->
-            <div class="flex items-center space-x-3">
-              <button
-                class="hidden md:block w-full bg-[#fdbe19] text-[#0a2540] py-2 px-6 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">Login</button>
-    
-              <!-- Mobile Menu Button -->
-              <button class="md:hidden" onclick="toggleMobileMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-              </button>
-            </div>
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="bg-[#0a2540] ">
+      <div class="flex justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+              fill="rgba(255,255,255,1)">
+              <path
+                d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z">
+              </path>
+            </svg>
+            <p class="text-white">+1 (555) 123-4567</p>
           </div>
-    
-          <!-- Mobile Nav -->
-          <div id="mobileMenu" class="hidden md:hidden pb-4">
-            <nav class="flex flex-col space-y-4">
-              <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
-              <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
-              <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
-              <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
-              <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
-            </nav>
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+              fill="rgba(251,248,248,1)">
+              <path
+                d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z">
+              </path>
+            </svg>
+            <p class="text-white">info@ceditravels.com</p>
           </div>
         </div>
-      </header>
-
-    <main class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-[#0a2540] mb-8">Event Venues in Ghana</h1>
-
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div>
-                    <label class="block text-sm font-medium mb-2">Location</label>
-                    <input type="text" placeholder="Accra" class="w-full px-4 py-2 border rounded-lg">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">Event Date</label>
-                    <input type="date" class="w-full px-4 py-2 border rounded-lg">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">Guest Count</label>
-                    <select class="w-full px-4 py-2 border rounded-lg">
-                        <option>50-100</option>
-                        <option>100-200</option>
-                        <option>200-500</option>
-                        <option>500+</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-2">Event Type</label>
-                    <select class="w-full px-4 py-2 border rounded-lg">
-                        <option>Wedding</option>
-                        <option>Conference</option>
-                        <option>Party</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-            </div>
+        <div class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)">
+            <path
+              d="M22 17.0022C21.999 19.8731 19.9816 22.2726 17.2872 22.8616L16.6492 20.9476C17.8532 20.7511 18.8765 20.0171 19.4649 19H17C15.8954 19 15 18.1046 15 17V13C15 11.8954 15.8954 11 17 11H19.9381C19.446 7.05369 16.0796 4 12 4C7.92038 4 4.55399 7.05369 4.06189 11H7C8.10457 11 9 11.8954 9 13V17C9 18.1046 8.10457 19 7 19H4C2.89543 19 2 18.1046 2 17V12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12V12.9987V13V17V17.0013V17.0022ZM20 17V13H17V17H20ZM4 13V17H7V13H4Z">
+            </path>
+          </svg>
+          <p class="text-white">24/7 Customer Support</p>
         </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex items-center justify-between py-4 relative">
+        <!-- Brand -->
+        <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">
+          <img src="images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2">
+        </a>
 
-        <div id="venueListings" class="space-y-6">
-            <!-- Venues will be loaded here -->
+        <!-- Center Nav -->
+        <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+          <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+          <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+          <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
+          <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
+        </nav>
+
+        <!-- Login Button (Right) -->
+        <div class="flex items-center space-x-3">
+          <button
+            class="hidden md:block w-full bg-[#fdbe19] text-[#0a2540] py-2 px-6 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">Login</button>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden" onclick="toggleMobileMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
-    </main>
+      </div>
 
-    <footer class="bg-[#0a2540] text-white py-12 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300">&copy; 2025 Ghana Travels. All rights reserved.</p>
+      <!-- Mobile Nav -->
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <nav class="flex flex-col space-y-4">
+          <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+          <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+          <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+          <a href="tours.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Tours</a>
+          <a href="events.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 max-w-7xl">
+    <h1 class="text-3xl font-bold text-[#0a2540] mb-8">Event Venues in Ghana</h1>
+
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-2">Location</label>
+          <input type="text" placeholder="Accra" class="w-full px-4 py-2 border rounded-lg">
         </div>
-    </footer>
+        <div>
+          <label class="block text-sm font-medium mb-2">Event Date</label>
+          <input type="date" class="w-full px-4 py-2 border rounded-lg">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Guest Count</label>
+          <select class="w-full px-4 py-2 border rounded-lg">
+            <option>50-100</option>
+            <option>100-200</option>
+            <option>200-500</option>
+            <option>500+</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-2">Event Type</label>
+          <select class="w-full px-4 py-2 border rounded-lg">
+            <option>Wedding</option>
+            <option>Conference</option>
+            <option>Party</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-    <script src="js/events.js"></script>
+    <div id="venueListings" class="space-y-6">
+      <!-- Venues will be loaded here -->
+    </div>
+  </main>
+
+  <footer class="bg-[#0a2540] text-white py-12 mt-16">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-300">&copy; 2025 Ghana Travels. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/events.js"></script>
 </body>
+
 </html>
