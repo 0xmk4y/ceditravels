@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Details - Cedi Travel Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#fdbe19',
+            secondary: '#0a2540',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tab-active {
+      border-bottom: 3px solid #fdbe19;
+      color: #fdbe19;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="bg-[#0a2540]">
+      <div class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)">
+              <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
+            </svg>
+            <p class="text-white">+1 (555) 123-4567</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(251,248,248,1)">
+              <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
+            </svg>
+            <p class="text-white">info@ceditravels.com</p>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)">
+            <path d="M22 17.0022C21.999 19.8731 19.9816 22.2726 17.2872 22.8616L16.6492 20.9476C17.8532 20.7511 18.8765 20.0171 19.4649 19H17C15.8954 19 15 18.1046 15 17V13C15 11.8954 15.8954 11 17 11H19.9381C19.446 7.05369 16.0796 4 12 4C7.92038 4 4.55399 7.05369 4.06189 11H7C8.10457 11 9 11.8954 9 13V17C9 18.1046 8.10457 19 7 19H4C2.89543 19 2 18.1046 2 17V12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12V12.9987V13V17V17.0013V17.0022ZM20 17V13H17V17H20ZM4 13V17H7V13H4Z"></path>
+          </svg>
+          <p class="text-white">24/7 Customer Support</p>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="flex items-center justify-between py-4 relative">
+        <a href="../index.html" class="text-2xl font-bold text-[#fdbe19]">
+          <img src="../images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2">
+        </a>
+        <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          <a href="../hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+          <a href="../flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+          <a href="../cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+          <a href="../tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+          <a href="../events.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Event Venues</a>
+        </nav>
+        <div class="flex items-center space-x-3">
+          <button class="hidden md:block w-full bg-[#fdbe19] text-[#0a2540] py-2 px-6 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">Login</button>
+          <button class="md:hidden" onclick="toggleMobileMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden pb-4">
+        <nav class="flex flex-col space-y-4">
+          <a href="../hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+          <a href="../flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+          <a href="../cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+          <a href="../tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+          <a href="../events.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Event Venues</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-white">
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 max-w-7xl py-4">
+      <div class="flex items-center gap-2 text-sm text-gray-600">
+        <a href="../events.html" class="hover:text-[#fdbe19]">Event Venues</a>
+        <span>/</span>
+        <a href="../events.html" class="hover:text-[#fdbe19]">Accra</a>
+        <span>/</span>
+        <span class="text-[#0a2540] font-semibold" id="breadcrumbName">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Hero Section with Image Gallery -->
+    <div class="relative">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-4 gap-2 h-[500px]">
+          <div class="col-span-4 md:col-span-2 row-span-2 relative overflow-hidden rounded-lg cursor-pointer" onclick="openGallery(0)">
+            <img id="mainImage" src="" alt="Venue" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="col-span-2 md:col-span-1 relative overflow-hidden rounded-lg cursor-pointer" onclick="openGallery(1)">
+            <img id="image2" src="" alt="Venue" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="col-span-2 md:col-span-1 relative overflow-hidden rounded-lg cursor-pointer" onclick="openGallery(2)">
+            <img id="image3" src="" alt="Venue" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="col-span-2 md:col-span-1 relative overflow-hidden rounded-lg cursor-pointer" onclick="openGallery(3)">
+            <img id="image4" src="" alt="Venue" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="col-span-2 md:col-span-1 relative overflow-hidden rounded-lg cursor-pointer group" onclick="openGallery(4)">
+            <img id="image5" src="" alt="Venue" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <span class="text-white text-lg font-semibold">View All Photos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venue Header -->
+    <div class="bg-white border-b">
+      <div class="container mx-auto px-4 max-w-7xl py-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h1 id="venueName" class="text-3xl md:text-4xl font-bold text-[#0a2540] mb-2">Loading...</h1>
+            <div class="flex items-center gap-4 text-gray-600">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M12 20.9L16.95 15.95C19.6834 13.2167 19.6834 8.78333 16.95 6.05C14.2167 3.31667 9.78333 3.31667 7.05 6.05C4.31667 8.78333 4.31667 13.2167 7.05 15.95L12 20.9ZM12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13ZM12 15C9.79086 15 8 13.2091 8 11C8 8.79086 9.79086 7 12 7C14.2091 7 16 8.79086 16 11C16 13.2091 14.2091 15 12 15Z"></path>
+                </svg>
+                <span id="venueLocation">Loading...</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M17 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9V3H15V1H17V3ZM4 9V19H20V9H4ZM6 11H8V13H6V11ZM6 15H8V17H6V15ZM10 11H18V13H10V11ZM10 15H15V17H10V15Z"></path>
+                </svg>
+                <span id="venueCapacity">Loading...</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="px-6 py-3 border-2 border-[#fdbe19] text-[#fdbe19] rounded-lg font-semibold hover:bg-[#fdbe19] hover:text-white transition">
+              Save Venue
+            </button>
+            <button class="px-6 py-3 bg-[#fdbe19] text-[#0a2540] rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+              Request Proposal
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-white border-b sticky top-[88px] z-40">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="flex gap-8 overflow-x-auto">
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap tab-active" onclick="scrollToSection('about')">About</button>
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap" onclick="scrollToSection('amenities')">Amenities</button>
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap" onclick="scrollToSection('meeting-rooms')">Meeting Rooms</button>
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap" onclick="scrollToSection('guest-rooms')">Guest Rooms</button>
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap" onclick="scrollToSection('location')">Location</button>
+          <button class="py-4 font-semibold text-gray-600 hover:text-[#fdbe19] whitespace-nowrap" onclick="scrollToSection('contact')">Contact</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="container mx-auto px-4 max-w-7xl py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- About Section -->
+          <section id="about">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-4">About This Venue</h2>
+            <div id="venueDescription" class="text-gray-700 leading-relaxed space-y-4">
+              <p>Loading venue description...</p>
+            </div>
+            
+            <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-[#fdbe19]" id="totalRooms">0</div>
+                <div class="text-sm text-gray-600 mt-1">Meeting Rooms</div>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-[#fdbe19]" id="maxCapacity">0</div>
+                <div class="text-sm text-gray-600 mt-1">Max Capacity</div>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-[#fdbe19]" id="guestRooms">0</div>
+                <div class="text-sm text-gray-600 mt-1">Guest Rooms</div>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-[#fdbe19]" id="sqFootage">0</div>
+                <div class="text-sm text-gray-600 mt-1">Sq Ft Space</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Amenities Section -->
+          <section id="amenities">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Amenities & Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Room Features</h3>
+                <ul id="roomFeatures" class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Loading...</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Event Facilities</h3>
+                <ul id="eventFacilities" class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Loading...</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Hotel Services</h3>
+                <ul id="hotelServices" class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Loading...</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Recreation</h3>
+                <ul id="recreation" class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700">Loading...</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Meeting Rooms Section -->
+          <section id="meeting-rooms">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Meeting Spaces</h2>
+            <div id="meetingRoomsList" class="space-y-4">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Guest Rooms Section -->
+          <section id="guest-rooms">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Guest Accommodations</h2>
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <p class="text-gray-700 mb-4" id="guestRoomDescription">Loading room information...</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19]">
+                    <path d="M22 11V20H20V17H4V20H2V4H4V14H12V7H18C20.2091 7 22 8.79086 22 11ZM8 13C6.34315 13 5 11.6569 5 10C5 8.34315 6.34315 7 8 7C9.65685 7 11 8.34315 11 10C11 11.6569 9.65685 13 8 13Z"></path>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-[#0a2540]" id="roomCount">0 Rooms</div>
+                    <div class="text-sm text-gray-600">Total Accommodations</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19]">
+                    <path d="M21 8V20.9932C21 21.5501 20.5552 22 20.0066 22H3.9934C3.44495 22 3 21.556 3 21.0082V2.9918C3 2.45531 3.4487 2 4.00221 2H14.9968L21 8ZM19 9H14V4H5V20H19V9ZM8 7H11V9H8V7ZM8 11H16V13H8V11ZM8 15H16V17H8V15Z"></path>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-[#0a2540]" id="roomTypes">0 Types</div>
+                    <div class="text-sm text-gray-600">Room Categories</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Location Section -->
+          <section id="location">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Location & Directions</h2>
+            <div class="space-y-6">
+              <div class="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
+                <p class="text-gray-600">Map will be displayed here</p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Getting Here</h3>
+                <div class="space-y-3 text-gray-700">
+                  <div class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19] flex-shrink-0">
+                      <path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12ZM12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15Z"></path>
+                    </svg>
+                    <div>
+                      <div class="font-semibold">From Kotoka International Airport</div>
+                      <p id="airportDistance">15 km (25 minutes by car)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19] flex-shrink-0">
+                      <path d="M12 20.9L16.95 15.95C19.6834 13.2167 19.6834 8.78333 16.95 6.05C14.2167 3.31667 9.78333 3.31667 7.05 6.05C4.31667 8.78333 4.31667 13.2167 7.05 15.95L12 20.9ZM12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13Z"></path>
+                    </svg>
+                    <div>
+                      <div class="font-semibold">Address</div>
+                      <p id="venueAddress">Loading address...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="font-semibold text-lg text-[#0a2540] mb-3">Nearby Attractions</h3>
+                <div id="nearbyAttractions" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact Section -->
+          <section id="contact">
+            <h2 class="text-2xl font-bold text-[#0a2540] mb-6">Contact Information</h2>
+            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+              <div class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19]">
+                  <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821Z"></path>
+                </svg>
+                <div>
+                  <div class="text-sm text-gray-600">Phone</div>
+                  <div class="font-semibold text-[#0a2540]" id="venuePhone">+233 XX XXX XXXX</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19]">
+                  <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
+                </svg>
+                <div>
+                  <div class="text-sm text-gray-600">Email</div>
+                  <div class="font-semibold text-[#0a2540]" id="venueEmail">contact@venue.com</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-[#fdbe19]">
+                  <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z"></path>
+                </svg>
+                <div>
+                  <div class="text-sm text-gray-600">Operating Hours</div>
+                  <div class="font-semibold text-[#0a2540]">24/7 Event Support</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-32 space-y-6">
+            <!-- Request Quote Card -->
+            <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+              <h3 class="text-xl font-bold text-[#0a2540] mb-4">Request a Proposal</h3>
+              <form class="space-y-4">
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Event Date</label>
+                  <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Number of Guests</label>
+                  <input type="number" placeholder="Enter number of guests" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Event Type</label>
+                  <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                    <option>Corporate Meeting</option>
+                    <option>Wedding</option>
+                    <option>Conference</option>
+                    <option>Social Event</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                  <input type="text" placeholder="Full name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input type="email" placeholder="your@email.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                  <input type="tel" placeholder="+233 XX XXX XXXX" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#fdbe19] focus:border-transparent">
+                </div>
+                <button type="submit" class="w-full bg-[#fdbe19] text-[#0a2540] py-3 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
+                  Send Request
+                </button>
+              </form>
+            </div>
+
+            <!-- Quick Info Card -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-bold text-[#0a2540] mb-4">Quick Info</h3>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Check-in Time:</span>
+                  <span class="font-semibold">3:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Check-out Time:</span>
+                  <span class="font-semibold">12:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Parking:</span>
+                  <span class="font-semibold">Available</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">WiFi:</span>
+                  <span class="font-semibold">Free</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Catering:</span>
+                  <span class="font-semibold">On-site</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Share Card -->
+            <div class="bg-white border-2 border-gray-200 rounded-lg p-6">
+              <h3 class="text-lg font-bold text-[#0a2540] mb-4">Share this Venue</h3>
+              <div class="flex gap-3">
+                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                  Facebook
+                </button>
+                <button class="flex-1 bg-sky-500 text-white py-2 rounded-lg hover:bg-sky-600 transition">
+                  Twitter
+                </button>
+                <button class="flex-1 bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                  Email
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Image Gallery Modal -->
+  <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden">
+    <div class="h-full flex flex-col">
+      <div class="flex justify-between items-center p-4">
+        <div class="text-white text-lg" id="imageCounter">1 / 5</div>
+        <button onclick="closeGallery()" class="text-white text-3xl hover:text-gray-300">&times;</button>
+      </div>
+      <div class="flex-1 flex items-center justify-center p-4">
+        <button onclick="prevImage()" class="text-white text-5xl px-4 hover:text-gray-300">‹</button>
+        <img id="modalImage" src="" alt="Venue" class="max-h-full max-w-full object-contain">
+        <button onclick="nextImage()" class="text-white text-5xl px-4 hover:text-gray-300">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a2540] text-white py-12">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="../images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2 mb-3">
+          <p class="text-gray-300">Your trusted partner for travel in Ghana</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="../hotels.html" class="hover:text-[#fdbe19]">Hotels</a></li>
+            <li><a href="../flights.html" class="hover:text-[#fdbe19]">Flights</a></li>
+            <li><a href="../cars.html" class="hover:text-[#fdbe19]">Car Rental</a></li>
+            <li><a href="../events.html" class="hover:text-[#fdbe19]">Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#" class="hover:text-[#fdbe19]">Contact Us</a></li>
+            <li><a href="#" class="hover:text-[#fdbe19]">FAQs</a></li>
+            <li><a href="#" class="hover:text-[#fdbe19]">Terms & Conditions</a></li>
+            <li><a href="#" class="hover:text-[#fdbe19]">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li>Email: info@ceditravels.com</li>
+            <li>Phone: +233 XX XXX XXXX</li>
+            <li>Accra, Ghana</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Cedi Travels. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sample venue data - This would typically come from URL parameters or API
+    const venueData = {
+      id: 1,
+      name: "Kempinski Hotel Gold Coast City",
+      location: "Airport City, Accra",
+      address: "No. 7 Liberation Link, Airport City, Accra, Ghana",
+      capacity: "Up to 1,200 guests",
+      description: [
+        "Kempinski Hotel Gold Coast City offers sophisticated event spaces in the heart of Accra's business district. Our venue combines world-class facilities with exceptional Ghanaian hospitality to create memorable events.",
+        "With over 15,000 square feet of flexible meeting space, we can accommodate everything from intimate board meetings to grand celebrations. Each space features state-of-the-art technology and can be customized to meet your specific needs.",
+        "Our experienced event planning team works closely with you to ensure every detail is perfect, from initial concept to final execution. We pride ourselves on delivering seamless events that exceed expectations."
+      ],
+      images: [
+        "https://www.cvent.com/venues/_next/image?url=https%3A%2F%2Fimages.cvent.com%2Fcsn%2F04aa5f99-8c78-40fd-b690-70c1a37e8aeb%2Fimages%2F5c82a24ff2ee4686a806f4896465417c_large!_!274d818c370ff6db44a2ef1686c038fd.jpg&w=640&q=80",
+        "https://www.cvent.com/venues/_next/image?url=https%3A%2F%2Fimages.cvent.com%2Fcsn%2F04aa5f99-8c78-40fd-b690-70c1a37e8aeb%2Fimages%2F5c82a24ff2ee4686a806f4896465417c_large!_!274d818c370ff6db44a2ef1686c038fd.jpg&w=640&q=80",
+        "https://www.cvent.com/venues/_next/image?url=https%3A%2F%2Fimages.cvent.com%2Fcsn%2F04aa5f99-8c78-40fd-b690-70c1a37e8aeb%2Fimages%2F5c82a24ff2ee4686a806f4896465417c_large!_!274d818c370ff6db44a2ef1686c038fd.jpg&w=640&q=80",
+        "https://www.cvent.com/venues/_next/image?url=https%3A%2F%2Fimages.cvent.com%2Fcsn%2F04aa5f99-8c78-40fd-b690-70c1a37e8aeb%2Fimages%2F5c82a24ff2ee4686a806f4896465417c_large!_!274d818c370ff6db44a2ef1686c038fd.jpg&w=640&q=80",
+        "https://www.cvent.com/venues/_next/image?url=https%3A%2F%2Fimages.cvent.com%2Fcsn%2F04aa5f99-8c78-40fd-b690-70c1a37e8aeb%2Fimages%2F5c82a24ff2ee4686a806f4896465417c_large!_!274d818c370ff6db44a2ef1686c038fd.jpg&w=640&q=80",
+      ],
+      stats: {
+        totalRooms: 8,
+        maxCapacity: 1200,
+        guestRooms: 269,
+        sqFootage: 15000
+      },
+      amenities: {
+        roomFeatures: [
+          "High-speed WiFi",
+          "Air conditioning",
+          "Audio/Visual equipment",
+          "Blackout curtains",
+          "Natural lighting options",
+          "Power outlets throughout"
+        ],
+        eventFacilities: [
+          "On-site catering",
+          "Full bar service",
+          "Dance floor",
+          "Stage available",
+          "Loading dock access",
+          "Portable partition walls"
+        ],
+        hotelServices: [
+          "Concierge services",
+          "24/7 room service",
+          "Valet parking",
+          "Business center",
+          "Gift shop",
+          "Laundry service"
+        ],
+        recreation: [
+          "Outdoor pool",
+          "Fitness center",
+          "Spa services",
+          "Restaurant on-site",
+          "Bar lounge",
+          "Garden terrace"
+        ]
+      },
+      meetingRooms: [
+        {
+          name: "Grand Ballroom",
+          capacity: "1,200 theater / 800 banquet",
+          size: "10,000 sq ft",
+          features: "Divisible into 3 sections, built-in AV, dance floor"
+        },
+        {
+          name: "Executive Boardroom",
+          capacity: "24 boardroom",
+          size: "800 sq ft",
+          features: "Video conferencing, presentation screen, natural light"
+        },
+        {
+          name: "Gold Coast Suite",
+          capacity: "250 theater / 150 banquet",
+          size: "2,500 sq ft",
+          features: "Pre-function area, private entrance, terrace access"
+        },
+        {
+          name: "Airport Meeting Room",
+          capacity: "60 theater / 40 banquet",
+          size: "900 sq ft",
+          features: "Built-in projector, flipcharts, WiFi"
+        }
+      ],
+      guestRoomInfo: "Our 269 elegantly appointed guest rooms and suites offer the perfect retreat after a busy day of meetings or celebrations. Each room features modern amenities, comfortable workspaces, and stunning city views.",
+      contact: {
+        phone: "+233 302 980 000",
+        email: "events@kempinski-goldcoast.com"
+      },
+      airportDistance: "5 km (10 minutes by car)",
+      nearbyAttractions: [
+        { name: "Kotoka International Airport", distance: "5 km" },
+        { name: "Accra Mall", distance: "3 km" },
+        { name: "Independence Square", distance: "8 km" },
+        { name: "Labadi Beach", distance: "12 km" }
+      ]
+    };
+
+    // Gallery functionality
+    let currentImageIndex = 0;
+    const images = venueData.images;
+
+    function openGallery(index) {
+      currentImageIndex = index;
+      document.getElementById('galleryModal').classList.remove('hidden');
+      updateModalImage();
+    }
+
+    function closeGallery() {
+      document.getElementById('galleryModal').classList.add('hidden');
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateModalImage();
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      updateModalImage();
+    }
+
+    function updateModalImage() {
+      document.getElementById('modalImage').src = images[currentImageIndex];
+      document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} / ${images.length}`;
+    }
+
+    // Keyboard navigation for gallery
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryModal');
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeGallery();
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // Smooth scroll to sections
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      const offset = 150;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = section.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Update active tab
+      document.querySelectorAll('.tab-active').forEach(el => el.classList.remove('tab-active'));
+      event.target.classList.add('tab-active');
+    }
+
+    // Update active tab on scroll
+    window.addEventListener('scroll', () => {
+      const sections = ['about', 'amenities', 'meeting-rooms', 'guest-rooms', 'location', 'contact'];
+      const scrollPos = window.scrollY + 200;
+
+      sections.forEach((sectionId, index) => {
+        const section = document.getElementById(sectionId);
+        if (section && section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+          document.querySelectorAll('.tab-active').forEach(el => el.classList.remove('tab-active'));
+          const tabs = document.querySelectorAll('button[onclick^="scrollToSection"]');
+          if (tabs[index]) tabs[index].classList.add('tab-active');
+        }
+      });
+    });
+
+    // Populate page with venue data
+    function populateVenueData() {
+      // Basic info
+      document.getElementById('venueName').textContent = venueData.name;
+      document.getElementById('breadcrumbName').textContent = venueData.name;
+      document.getElementById('venueLocation').textContent = venueData.location;
+      document.getElementById('venueCapacity').textContent = venueData.capacity;
+      document.getElementById('venueAddress').textContent = venueData.address;
+      document.getElementById('airportDistance').textContent = venueData.airportDistance;
+      document.getElementById('venuePhone').textContent = venueData.contact.phone;
+      document.getElementById('venueEmail').textContent = venueData.contact.email;
+
+      // Images
+      document.getElementById('mainImage').src = venueData.images[0];
+      document.getElementById('image2').src = venueData.images[1];
+      document.getElementById('image3').src = venueData.images[2];
+      document.getElementById('image4').src = venueData.images[3];
+      document.getElementById('image5').src = venueData.images[4];
+
+      // Description
+      const descContainer = document.getElementById('venueDescription');
+      descContainer.innerHTML = venueData.description.map(p => `<p>${p}</p>`).join('');
+
+      // Stats
+      document.getElementById('totalRooms').textContent = venueData.stats.totalRooms;
+      document.getElementById('maxCapacity').textContent = venueData.stats.maxCapacity;
+      document.getElementById('guestRooms').textContent = venueData.stats.guestRooms;
+      document.getElementById('sqFootage').textContent = venueData.stats.sqFootage.toLocaleString();
+
+      // Amenities
+      const createAmenityList = (items) => {
+        return items.map(item => `
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700">${item}</span>
+          </li>
+        `).join('');
+      };
+
+      document.getElementById('roomFeatures').innerHTML = createAmenityList(venueData.amenities.roomFeatures);
+      document.getElementById('eventFacilities').innerHTML = createAmenityList(venueData.amenities.eventFacilities);
+      document.getElementById('hotelServices').innerHTML = createAmenityList(venueData.amenities.hotelServices);
+      document.getElementById('recreation').innerHTML = createAmenityList(venueData.amenities.recreation);
+
+      // Meeting rooms
+      const meetingRoomsList = document.getElementById('meetingRoomsList');
+      meetingRoomsList.innerHTML = venueData.meetingRooms.map(room => `
+        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-[#0a2540] mb-2">${room.name}</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+            <div>
+              <div class="text-sm text-gray-600">Capacity</div>
+              <div class="font-semibold text-[#0a2540]">${room.capacity}</div>
+            </div>
+            <div>
+              <div class="text-sm text-gray-600">Size</div>
+              <div class="font-semibold text-[#0a2540]">${room.size}</div>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm">${room.features}</p>
+        </div>
+      `).join('');
+
+      // Guest rooms
+      document.getElementById('guestRoomDescription').textContent = venueData.guestRoomInfo;
+      document.getElementById('roomCount').textContent = `${venueData.stats.guestRooms} Rooms`;
+      document.getElementById('roomTypes').textContent = `${Math.floor(venueData.stats.guestRooms / 50)} Types`;
+
+      // Nearby attractions
+      const attractionsContainer = document.getElementById('nearbyAttractions');
+      attractionsContainer.innerHTML = venueData.nearbyAttractions.map(attraction => `
+        <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+          <span class="text-gray-700">${attraction.name}</span>
+          <span class="text-[#fdbe19] font-semibold">${attraction.distance}</span>
+        </div>
+      `).join('');
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      populateVenueData();
+    });
+  </script>
+</body>
+
+</html>

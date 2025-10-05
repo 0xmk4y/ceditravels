@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotels in Ghana - Ghana Travels</title>
+    <title>Hotels in Ghana - Cedi Travels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <!-- Image gallery -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" rel="stylesheet">
-    
+
     <!-- LightGallery plugins (optional but recommended) -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/thumbnail/lg-thumbnail.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/zoom/lg-zoom.umd.js"></script>
@@ -43,7 +43,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="bg-[#0a2540] ">
             <div
-                class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
+                class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto ">
                 <div class="flex items-center gap-6">
                     <div class="flex items-center gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="container mx-auto px-4 max-w-7xl">
+        <div class="container mx-auto px-4 ">
             <div class="flex items-center justify-between py-4 relative">
                 <!-- Brand -->
                 <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">
@@ -92,7 +92,7 @@
                         Rental</a>
                     <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
                     <a href="events.html"
-                        class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
+                        class="text-[#0a2540] font-semibold hover:text-[#fdbe19] Cedi Traveltransition">Event Venues</a>
                 </nav>
 
                 <!-- Login Button (Right) -->
@@ -123,14 +123,14 @@
                         Rental</a>
                     <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
                     <a href="events.html"
-                        class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Events</a>
+                        class="text-[#0a2540] font-semibold hover:text-[#fdbe19] Cedi Traveltransition">Event Venues</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <section class="bg-gray-50">
-        <div class="container mx-auto px-4 md:mt-[20px] relative z-10 max-w-7xl">
+        <div class="container mx-auto px-4 md:mt-[20px] relative z-10 ">
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <!-- Hotels Tab -->
                 <div id="form-hotels" class="tab-content">
@@ -173,9 +173,9 @@
     </section>
 
     <!-- Main Layout -->
-    <div class="container mx-auto px-4 py-8 flex flex-col justify-center md:flex-row gap-8 max-w-7xl">
+    <div class="container mx-auto px-4 py-8 flex flex-col justify-center md:flex-row gap-8 ">
         <!-- Filters -->
-        <aside class="bg-white rounded-lg shadow-md p-6 gap-6 border w-full md:w-[400px]">
+        <aside class="bg-white rounded-lg shadow-md p-6 gap-6 border w-full md:w-[400px] max-h-screen">
             <h3 class="font-bold text-[24px] mb-2">Filters</h3>
 
             <!-- Location -->
@@ -263,92 +263,207 @@
             </div>
 
             <!-- Hotels listing grid -->
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 gap-6">
                 <!-- Hotel 1 -->
-                <div class="flex flex-col md:flex-row items-stretch w-full border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                    <!-- Image with gallery trigger -->
-                    <div class="w-full md:w-1/3 hotel-gallery-trigger" data-hotel-id="0">
+                <div
+                    class="flex flex-col md:flex-row items-stretch w-full border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <!-- Bigger Image -->
+                    <div class="w-full md:w-1/2 hotel-gallery-trigger" data-hotel-id="0">
                         <img src="https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2"
-                            alt="Quadruple Room" class="h-[250px] w-full object-cover cursor-pointer hover:opacity-90 transition-opacity">
+                            alt="Quadruple Room"
+                            class="h-full w-full object-cover cursor-pointer hover:opacity-90 hover:scale-[1.02] transition-transform duration-300">
                     </div>
 
                     <!-- Content -->
-                    <div class="p-4 flex flex-col justify-between w-full md:w-2/3">
+                    <div class="p-6 flex flex-col justify-between w-full md:w-1/2">
                         <div>
-                            <h3 class="font-bold mb-4 text-lg">Quadruple Room - Hotel Accra</h3>
-                            <div class="space-y-2 text-gray-600">
+                            <h3 class="font-bold mb-4 text-xl">Quadruple Room - Hotel Accra</h3>
+                            <div class="space-y-3 text-gray-600">
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z" />
                                     </svg>
                                     <p>Room size: 26 m²/280 ft²</p>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z" />
                                     </svg>
                                     <p>2 single beds + 1 double bed</p>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                                     </svg>
                                     <p>Accra, Greater Accra</p>
                                 </div>
                             </div>
                         </div>
-                        <button class="border p-3 mt-4 bg-primary rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
+                        <button
+                            class="hidden border p-4 mt-6 bg-[#fdbe19] text-[#0a2540] rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
                             Enter date to see prices
                         </button>
+
+                        <!-- Prices & Availability (hidden by default) -->
+                        <div class="mt-4 price-availability">
+                            <div class="flex items-center justify-between border-t pt-4">
+                                <p class="text-gray-700">Price per night</p>
+                                <p class="text-xl font-bold text-[#0a2540] pr-4">$120</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-gray-700">Availability</p>
+                                <span
+                                    class="px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700">Available</span>
+                            </div>
+                            <button
+                                class="w-full mt-4 bg-[#0a2540] text-white py-3 rounded-lg font-semibold hover:bg-[#1a365d] transition-colors">
+                                Book Now
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Hotel 2 -->
-                <div class="flex flex-col md:flex-row items-stretch w-full border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                    <!-- Image with gallery trigger -->
-                    <div class="w-full md:w-1/3 hotel-gallery-trigger" data-hotel-id="1">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="Deluxe Suite"
-                            class="h-[250px] w-full object-cover cursor-pointer hover:opacity-90 transition-opacity">
+                <div
+                    class="flex flex-col md:flex-row items-stretch w-full border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <!-- Bigger Image -->
+                    <div class="w-full md:w-1/2 hotel-gallery-trigger" data-hotel-id="0">
+                        <img src="https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2"
+                            alt="Quadruple Room"
+                            class="h-full w-full object-cover cursor-pointer hover:opacity-90 hover:scale-[1.02] transition-transform duration-300">
                     </div>
 
                     <!-- Content -->
-                    <div class="p-4 flex flex-col justify-between w-full md:w-2/3">
+                    <div class="p-6 flex flex-col justify-between w-full md:w-1/2">
                         <div>
-                            <h3 class="font-bold mb-4 text-lg">Deluxe Suite - Labadi Beach Hotel</h3>
-                            <div class="space-y-2 text-gray-600">
+                            <h3 class="font-bold mb-4 text-xl">Quadruple Room - Hotel Accra</h3>
+                            <div class="space-y-3 text-gray-600">
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z" />
                                     </svg>
-                                    <p>Room size: 35 m²/377 ft²</p>
+                                    <p>Room size: 26 m²/280 ft²</p>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z" />
                                     </svg>
-                                    <p>1 king bed</p>
+                                    <p>2 single beds + 1 double bed</p>
                                 </div>
                                 <div class="flex items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                                     </svg>
-                                    <p>Labadi, Accra</p>
+                                    <p>Accra, Greater Accra</p>
                                 </div>
                             </div>
                         </div>
-                        <button class="border p-3 mt-4 bg-primary rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
+                        <button
+                            class="hidden border p-4 mt-6 bg-[#fdbe19] text-[#0a2540] rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
                             Enter date to see prices
                         </button>
+
+                        <!-- Prices & Availability (hidden by default) -->
+                        <div class="mt-4 price-availability">
+                            <div class="flex items-center justify-between border-t pt-4">
+                                <p class="text-gray-700">Price per night</p>
+                                <p class="text-xl font-bold text-[#0a2540] pr-4">$120</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-gray-700">Availability</p>
+                                <span
+                                    class="px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700">Available</span>
+                            </div>
+                            <button
+                                class="w-full mt-4 bg-[#0a2540] text-white py-3 rounded-lg font-semibold hover:bg-[#1a365d] transition-colors">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div
+                    class="flex flex-col md:flex-row items-stretch w-full border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <!-- Bigger Image -->
+                    <div class="w-full md:w-1/2 hotel-gallery-trigger" data-hotel-id="0">
+                        <img src="https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2"
+                            alt="Quadruple Room"
+                            class="h-full w-full object-cover cursor-pointer hover:opacity-90 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6 flex flex-col justify-between w-full md:w-1/2">
+                        <div>
+                            <h3 class="font-bold mb-4 text-xl">Quadruple Room - Hotel Accra</h3>
+                            <div class="space-y-3 text-gray-600">
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z" />
+                                    </svg>
+                                    <p>Room size: 26 m²/280 ft²</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z" />
+                                    </svg>
+                                    <p>2 single beds + 1 double bed</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                    </svg>
+                                    <p>Accra, Greater Accra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="hidden border p-4 mt-6 bg-[#fdbe19] text-[#0a2540] rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
+                            Enter date to see prices
+                        </button>
+
+                        <!-- Prices & Availability (hidden by default) -->
+                        <div class="mt-4 price-availability">
+                            <div class="flex items-center justify-between border-t pt-4">
+                                <p class="text-gray-700">Price per night</p>
+                                <p class="text-xl font-bold text-[#0a2540] pr-4">$120</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-gray-700">Availability</p>
+                                <span
+                                    class="px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700">Available</span>
+                            </div>
+                            <button
+                                class="w-full mt-4 bg-[#0a2540] text-white py-3 rounded-lg font-semibold hover:bg-[#1a365d] transition-colors">
+                                Book Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
 
         </section>
     </div>
 
     <!-- Footer -->
     <footer class="bg-[#0a2540] text-white py-12">
-        <div class="container mx-auto px-4 max-w-7xl">
+        <div class="container mx-auto px-4 ">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <img src="images/cedi-travels.svg" alt="Cedi Travels Logo"
@@ -383,7 +498,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Ghana Travels. All rights reserved.</p>
+                <p>&copy; 2025 Cedi Travels. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -439,7 +554,7 @@
     let currentHotelId = 0;
     let currentImageIndex = 0;
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Create lightbox HTML
         const lightboxHTML = `
             <div class="lightbox-overlay" id="lightbox">
@@ -457,7 +572,7 @@
 
         // Add click events to gallery triggers
         document.querySelectorAll('.hotel-gallery-trigger').forEach(trigger => {
-            trigger.addEventListener('click', function() {
+            trigger.addEventListener('click', function () {
                 currentHotelId = parseInt(this.getAttribute('data-hotel-id'));
                 currentImageIndex = 0;
                 openLightbox();
@@ -469,7 +584,7 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
         const images = hotelImages[currentHotelId];
-        
+
         if (images && images.length > 0) {
             lightboxImage.src = images[currentImageIndex];
             lightbox.style.display = 'flex';
@@ -493,11 +608,12 @@
     }
 
     // Close lightbox when clicking outside image
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const lightbox = document.getElementById('lightbox');
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
 </script>
+
 </html>
