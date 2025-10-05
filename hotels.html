@@ -8,6 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
+    <!-- Image gallery -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css" rel="stylesheet">
+    
+    <!-- LightGallery plugins (optional but recommended) -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/thumbnail/lg-thumbnail.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/plugins/zoom/lg-zoom.umd.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -27,7 +35,6 @@
         width: 24px;
         height: 24px;
         -webkit-appearance: none;
-        /* @apply w-6 h-6 appearance-none pointer-events-auto; */
     }
 </style>
 
@@ -35,7 +42,8 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="bg-[#0a2540] ">
-            <div class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
+            <div
+                class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
                 <div class="flex items-center gap-6">
                     <div class="flex items-center gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
@@ -164,18 +172,10 @@
         </div>
     </section>
 
-    <!-- Page Header -->
-    <div class="container mx-auto px-4 py-6">
-        <!-- <h1 class="text-2xl font-bold text-secondary">Hotels in Miami, Florida</h1>
-        <p class="text-gray-600">March 15 – March 18, 2024 · 2 guests, 1 room</p>
-        <button class="mt-4 border px-4 py-2 rounded-md hover:bg-gray-100">Modify Search</button> -->
-    </div>
-
     <!-- Main Layout -->
     <div class="container mx-auto px-4 py-8 flex flex-col justify-center md:flex-row gap-8 max-w-7xl">
         <!-- Filters -->
-        <!-- Filters -->
-        <aside class="bg-white rounded-lg shadow-md p-6 gap-6 border w-[400px]">
+        <aside class="bg-white rounded-lg shadow-md p-6 gap-6 border w-full md:w-[400px]">
             <h3 class="font-bold text-[24px] mb-2">Filters</h3>
 
             <!-- Location -->
@@ -246,7 +246,6 @@
                     <li><input type="checkbox"> Pool</li>
                     <li><input type="checkbox"> Spa</li>
                     <li><input type="checkbox"> Restaurant</li>
-                    <!-- <li><input type="checkbox"> Gym</li> -->
                 </ul>
             </div>
         </aside>
@@ -263,102 +262,86 @@
                 </select>
             </div>
 
-            <!-- Hotels grid -->
-            <div class="grid grid-cols-1 gap-2">
-                <!-- Card 1 -->
-                <div class="flex items-stretch w-full border rounded-lg overflow-hidden">
-                    <!-- Image -->
-                    <div class="w-2/3">
+            <!-- Hotels listing grid -->
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Hotel 1 -->
+                <div class="flex flex-col md:flex-row items-stretch w-full border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <!-- Image with gallery trigger -->
+                    <div class="w-full md:w-1/3 hotel-gallery-trigger" data-hotel-id="0">
                         <img src="https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2"
-                            alt="" class="h-[250px] w-full object-cover cursor-pointer" onclick="openModal(0)">
+                            alt="Quadruple Room" class="h-[250px] w-full object-cover cursor-pointer hover:opacity-90 transition-opacity">
                     </div>
 
                     <!-- Content -->
-                    <div class="p-4 flex flex-col justify-between w-2/3 text-sm">
+                    <div class="p-4 flex flex-col justify-between w-full md:w-2/3">
                         <div>
-                            <h3 class="font-bold mb-4">Quadruple Room</h3>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>Room size: 26 m²/280 ft²</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>2 single beds</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>2 single beds</p>
+                            <h3 class="font-bold mb-4 text-lg">Quadruple Room - Hotel Accra</h3>
+                            <div class="space-y-2 text-gray-600">
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z"/>
+                                    </svg>
+                                    <p>Room size: 26 m²/280 ft²</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z"/>
+                                    </svg>
+                                    <p>2 single beds + 1 double bed</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                    </svg>
+                                    <p>Accra, Greater Accra</p>
+                                </div>
                             </div>
                         </div>
-                        <button class="border p-2 mt-2 bg-primary rounded text-center font-bold">
+                        <button class="border p-3 mt-4 bg-primary rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
                             Enter date to see prices
                         </button>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="flex items-stretch w-full border rounded-lg overflow-hidden">
-                    <!-- Image -->
-                    <div class="w-2/3">
-                        <img src="https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?w=600" alt=""
-                            class="h-[250px] w-full object-cover cursor-pointer" onclick="openModal(1)">
+                <!-- Hotel 2 -->
+                <div class="flex flex-col md:flex-row items-stretch w-full border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <!-- Image with gallery trigger -->
+                    <div class="w-full md:w-1/3 hotel-gallery-trigger" data-hotel-id="1">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" alt="Deluxe Suite"
+                            class="h-[250px] w-full object-cover cursor-pointer hover:opacity-90 transition-opacity">
                     </div>
 
                     <!-- Content -->
-                    <div class="p-4 flex flex-col justify-between w-2/3 text-sm">
+                    <div class="p-4 flex flex-col justify-between w-full md:w-2/3">
                         <div>
-                            <h3 class="font-bold mb-4">Quadruple Room</h3>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>Room size: 26 m²/280 ft²</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>2 single beds</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span>icon</span>
-                                <p>2 single beds</p>
+                            <h3 class="font-bold mb-4 text-lg">Deluxe Suite - Labadi Beach Hotel</h3>
+                            <div class="space-y-2 text-gray-600">
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z"/>
+                                    </svg>
+                                    <p>Room size: 35 m²/377 ft²</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M21 8.5c0-.83-.67-1.5-1.5-1.5h-16C2.67 7 2 7.67 2 8.5V11h20V8.5zm-18 0c0-.28.22-.5.5-.5h16c.28 0 .5.22.5.5V9H3V8.5zM1 13v5c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-5H1z"/>
+                                    </svg>
+                                    <p>1 king bed</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                    </svg>
+                                    <p>Labadi, Accra</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="border p-2 mt-2 bg-primary rounded text-center font-bold">
+                        <button class="border p-3 mt-4 bg-primary rounded-lg text-center font-bold hover:bg-yellow-500 transition-colors">
                             Enter date to see prices
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Modal -->
-            <div id="imageModal"
-                class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 h-screen"
-                onclick="closeModal()">
-
-                <!-- Prevent clicks inside modal from closing it -->
-                <div class="relative w-[80%] max-w-3xl" onclick="event.stopPropagation()">
-                    <button onclick="closeModal()"
-                        class="absolute top-2 right-6 font-bold text-white text-4xl z-50">&times;</button>
-
-                    <img id="modalImage" src="" class="w-full h-[500px] object-contain rounded-lg" alt="">
-
-                    <!-- Prev / Next -->
-                    <button onclick="prevImage()"
-                        class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full z-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-
-                    <button onclick="nextImage()"
-                        class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full z-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
 
         </section>
     </div>
@@ -404,8 +387,22 @@
             </div>
         </div>
     </footer>
+    <div id="inline-gallery-container" style="display: none;"></div>
 </body>
 <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+    }
+
+    // Search hotels function
+    function searchHotels(event) {
+        event.preventDefault();
+        console.log('Searching hotels...');
+    }
+
+    // Price range slider
     function range() {
         return {
             minprice: 1000,
@@ -427,32 +424,80 @@
         }
     }
 
-    const images = [
-        "https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2",
-        "https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?w=600"
-    ];
+    // Simple lightbox functionality
+    const hotelImages = {
+        0: [
+            'https://pix8.agoda.net/property/872281/1133722243/e2207f9186008a8f14ff0c29e8df52a7.jpeg?ce=2',
+            'https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?w=800'
+        ],
+        1: [
+            'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+            'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800'
+        ]
+    };
 
-    let currentIndex = 0;
+    let currentHotelId = 0;
+    let currentImageIndex = 0;
 
-    function openModal(index) {
-        currentIndex = index;
-        document.getElementById("modalImage").src = images[currentIndex];
-        document.getElementById("imageModal").classList.remove("hidden");
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create lightbox HTML
+        const lightboxHTML = `
+            <div class="lightbox-overlay" id="lightbox">
+                <button class="lightbox-close" onclick="closeLightbox()">×</button>
+                <div class="lightbox-content">
+                    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+                    <div class="lightbox-nav">
+                        <button onclick="prevImage()">‹</button>
+                        <button onclick="nextImage()">›</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+
+        // Add click events to gallery triggers
+        document.querySelectorAll('.hotel-gallery-trigger').forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                currentHotelId = parseInt(this.getAttribute('data-hotel-id'));
+                currentImageIndex = 0;
+                openLightbox();
+            });
+        });
+    });
+
+    function openLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const images = hotelImages[currentHotelId];
+        
+        if (images && images.length > 0) {
+            lightboxImage.src = images[currentImageIndex];
+            lightbox.style.display = 'flex';
+        }
     }
 
-    function closeModal() {
-        document.getElementById("imageModal").classList.add("hidden");
-    }
-
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        document.getElementById("modalImage").src = images[currentIndex];
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
     }
 
     function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        document.getElementById("modalImage").src = images[currentIndex];
+        const images = hotelImages[currentHotelId];
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        document.getElementById('lightbox-image').src = images[currentImageIndex];
     }
-</script>
 
+    function prevImage() {
+        const images = hotelImages[currentHotelId];
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        document.getElementById('lightbox-image').src = images[currentImageIndex];
+    }
+
+    // Close lightbox when clicking outside image
+    document.addEventListener('click', function(e) {
+        const lightbox = document.getElementById('lightbox');
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+</script>
 </html>
