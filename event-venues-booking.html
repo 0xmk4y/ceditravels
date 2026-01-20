@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Venue Booking - Cedi Travel Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#fdbe19',
+                        secondary: '#0a2540',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="bg-[#0a2540] ">
+            <div class="flex flex-col md:flex-row gap-3 justify-between items-center text-white px-4 py-2 text-sm container mx-auto max-w-7xl">
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)">
+                            <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
+                        </svg>
+                        <p class="text-white">+1 (555) 123-4567</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(251,248,248,1)">
+                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
+                        </svg>
+                        <p class="text-white">info@ceditravels.com</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)">
+                        <path d="M22 17.0022C21.999 19.8731 19.9816 22.2726 17.2872 22.8616L16.6492 20.9476C17.8532 20.7511 18.8765 20.0171 19.4649 19H17C15.8954 19 15 18.1046 15 17V13C15 11.8954 15.8954 11 17 11H19.9381C19.446 7.05369 16.0796 4 12 4C7.92038 4 4.55399 7.05369 4.06189 11H7C8.10457 11 9 11.8954 9 13V17C9 18.1046 8.10457 19 7 19H4C2.89543 19 2 18.1046 2 17V12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12V12.9987V13V17V17.0013V17.0022ZM20 17V13H17V17H20ZM4 13V17H7V13H4Z"></path>
+                    </svg>
+                    <p class="text-white">24/7 Customer Support</p>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex items-center justify-between py-4 relative">
+                <a href="index.html" class="text-2xl font-bold text-[#fdbe19]">
+                    <img src="images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2">
+                </a>
+                <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
+                    <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+                    <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+                    <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+                    <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+                    <a href="events.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Event Venues</a>
+                </nav>
+                <div class="flex items-center space-x-3">
+                    <button class="hidden md:block w-full bg-[#fdbe19] text-[#0a2540] py-2 px-6 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">Login</button>
+                    <button class="md:hidden" onclick="toggleMobileMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="hotels.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Hotels</a>
+                    <a href="flights.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Flights</a>
+                    <a href="cars.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Car Rental</a>
+                    <a href="tours.html" class="text-[#0a2540] font-semibold hover:text-[#fdbe19] transition">Tours</a>
+                    <a href="events.html" class="text-primary font-semibold hover:text-[#fdbe19] transition">Event Venues</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+        <a href="events.html" class="text-[#fdbe19] mb-4 inline-block hover:underline">&larr; Back to Venues</a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Form Column -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-[#0a2540] mb-8 text-center pb-4 border-b-2 border-[#0a2540]">Event Booking Information</h2>
+                    
+                    <form id="bookingForm">
+                        <!-- Venue Booking Sections (Dynamic) -->
+                        <div id="venuesContainer" class="space-y-8 mb-8">
+                            <!-- Venue sections will be dynamically inserted here -->
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="border-t pt-6 mb-6">
+                            <h3 class="text-xl font-bold text-[#0a2540] mb-4">Contact Information</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">
+                                        Contact Person Name <span class="text-red-600">*</span>
+                                    </label>
+                                    <input type="text" name="contactName" required 
+                                        placeholder="Full Name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">
+                                        Company/Organization <span class="text-red-600">*</span>
+                                    </label>
+                                    <input type="text" name="company" required 
+                                        placeholder="Company Name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">
+                                        Mobile / WhatsApp Number <span class="text-red-600">*</span>
+                                    </label>
+                                    <input type="tel" name="mobile" required 
+                                        placeholder="+233 XX XXX XXXX"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">
+                                        Email Address <span class="text-red-600">*</span>
+                                    </label>
+                                    <input type="email" name="email" required 
+                                        placeholder="your@email.com"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    Address <span class="text-red-600">*</span>
+                                </label>
+                                <textarea name="address" required rows="3" 
+                                    placeholder="Your full address"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Booking Preferences -->
+                        <div class="border-t pt-6 mb-6">
+                            <h3 class="text-xl font-bold text-[#0a2540] mb-4">Booking Preferences</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">
+                                        Payment Method <span class="text-red-600">*</span>
+                                    </label>
+                                    <select name="paymentMethod" required
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                        <option value="">Choose payment method...</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="card">Credit/Debit Card</option>
+                                        <option value="mobile-money">Mobile Money</option>
+                                        <option value="bank-transfer">Bank Transfer</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Event Type</label>
+                                    <select name="eventType"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]">
+                                        <option value="conference">Conference</option>
+                                        <option value="wedding">Wedding</option>
+                                        <option value="corporate">Corporate Event</option>
+                                        <option value="exhibition">Exhibition</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Special Requirements or Requests</label>
+                                <textarea name="specialRequests" rows="4" 
+                                    placeholder="Please let us know if you have any special requirements, catering needs, AV equipment, accessibility needs, or other requests..."
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fdbe19]"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="border-t pt-6 mb-6">
+                            <h3 class="text-xl font-bold text-[#0a2540] mb-4">Terms & Conditions</h3>
+                            
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" name="terms" required
+                                        class="mt-1 w-5 h-5 text-[#fdbe19] border-gray-300 rounded focus:ring-[#fdbe19]">
+                                    <span class="text-gray-700 text-sm">
+                                        I agree to the <a href="#" class="text-[#fdbe19] hover:underline">Terms and Conditions</a> and <a href="#" class="text-[#fdbe19] hover:underline">Privacy Policy</a> <span class="text-red-600">*</span>
+                                    </span>
+                                </label>
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" name="cancellation"
+                                        class="mt-1 w-5 h-5 text-[#fdbe19] border-gray-300 rounded focus:ring-[#fdbe19]">
+                                    <span class="text-gray-700 text-sm">
+                                        I understand the cancellation policy and agree to the terms
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="border-t pt-6">
+                            <button type="submit" 
+                                class="w-full bg-[#fdbe19] text-[#0a2540] py-4 rounded-lg font-bold text-lg hover:bg-[#fdbe19]/90 transition-colors">
+                                Proceed to Payment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Summary Sidebar -->
+            <aside class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 border sticky top-24">
+                    <h3 class="text-xl font-bold text-[#0a2540] mb-4">Booking Summary</h3>
+                    
+                    <div id="bookingSummary" class="space-y-4 mb-6">
+                        <!-- Summary will be dynamically inserted here -->
+                    </div>
+
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-700 font-medium">Subtotal</span>
+                            <span id="subtotalAmount" class="text-xl font-bold text-[#0a2540]">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-700 font-medium">Taxes & Fees</span>
+                            <span id="taxesAmount" class="text-lg text-gray-600">$0.00</span>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700 font-bold text-lg">Total Amount</span>
+                                <span id="totalAmount" class="text-2xl font-bold text-green-600">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-[#0a2540] text-white py-12 mt-12">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="images/cedi-travels.svg" alt="Cedi Travels Logo" class="h-10 inline-block align-middle mr-2 mb-3">
+                    <p class="text-gray-300">Your trusted partner for travel in Ghana</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="hotels.html" class="hover:text-[#fdbe19]">Hotels</a></li>
+                        <li><a href="flights.html" class="hover:text-[#fdbe19]">Flights</a></li>
+                        <li><a href="cars.html" class="hover:text-[#fdbe19]">Car Rental</a></li>
+                        <li><a href="events.html" class="hover:text-[#fdbe19]">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-[#fdbe19]">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-[#fdbe19]">FAQs</a></li>
+                        <li><a href="#" class="hover:text-[#fdbe19]">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-[#fdbe19]">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Email: info@ceditravels.com</li>
+                        <li>Phone: +233 XX XXX XXXX</li>
+                        <li>Accra, Ghana</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Cedi Travels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/event-venues-booking.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

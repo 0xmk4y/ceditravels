@@ -566,7 +566,7 @@
 
           <!-- Popular hotel 1 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition cursor-pointer"
-            onclick="window.location.href='hotel-booking.html?id=1'">
+            onclick="viewHotel(2)">
             <div class="relative h-48">
               <img
                 src="https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
@@ -599,7 +599,7 @@
                   <span class="text-2xl font-bold text-[#0a2540]">GH 250</span>
                   <span class="text-sm text-gray-600">/night</span>
                 </div>
-                <button
+                <button onclick="event.stopPropagation(); viewHotel(2)"
                   class="bg-[#fdbe19] text-[#0a2540] px-4 py-2 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
                   Book Now
                 </button>
@@ -609,11 +609,11 @@
 
           <!-- Popular hotel 2 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition cursor-pointer"
-            onclick="window.location.href='hotel-booking.html?id=2'">
+            onclick="viewHotel(1)">
             <div class="relative h-48">
               <img
-                src="https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                alt="Kempinski Hotel Gold Coast" class="w-full h-full object-cover">
+                src="https://images.unsplash.com/photo-1757839939579-d71ac270993b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                alt="Labadi Beach Hotel" class="w-full h-full object-cover">
               <button class="absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2">
@@ -624,7 +624,7 @@
               </button>
             </div>
             <div class="p-4">
-              <h3 class="text-lg font-semibold text-[#0a2540] mb-1">Kempinski Hotel Gold Coast</h3>
+              <h3 class="text-lg font-semibold text-[#0a2540] mb-1">Labadi Beach Hotel</h3>
               <p class="text-sm text-gray-600 mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" class="inline">
@@ -635,14 +635,14 @@
               </p>
               <div class="flex items-center mb-3">
                 <div class="flex"><span class="text-[#fdbe19] text-2xl">*****</span></div>
-                <span class="text-sm text-gray-600 ml-2">456 reviews</span>
+                <span class="text-sm text-gray-600 ml-2">324 reviews</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
-                  <span class="text-2xl font-bold text-[#0a2540]">GH 250</span>
+                  <span class="text-2xl font-bold text-[#0a2540]">$180</span>
                   <span class="text-sm text-gray-600">/night</span>
                 </div>
-                <button
+                <button onclick="event.stopPropagation(); viewHotel(1)"
                   class="bg-[#fdbe19] text-[#0a2540] px-4 py-2 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
                   Book Now
                 </button>
@@ -652,11 +652,11 @@
 
           <!-- Popular hotel 3 -->
           <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition cursor-pointer"
-            onclick="window.location.href='hotel-booking.html?id=3'">
+            onclick="viewHotel(3)">
             <div class="relative h-48">
               <img
-                src="https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                alt="Kempinski Hotel Gold Coast" class="w-full h-full object-cover">
+                src="https://images.unsplash.com/photo-1647643787408-0b3e85e091ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
+                alt="Movenpick Ambassador Hotel" class="w-full h-full object-cover">
               <button class="absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2">
@@ -667,7 +667,7 @@
               </button>
             </div>
             <div class="p-4">
-              <h3 class="text-lg font-semibold text-[#0a2540] mb-1">Kempinski Hotel Gold Coast</h3>
+              <h3 class="text-lg font-semibold text-[#0a2540] mb-1">Movenpick Ambassador Hotel</h3>
               <p class="text-sm text-gray-600 mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" class="inline">
@@ -678,14 +678,14 @@
               </p>
               <div class="flex items-center mb-3">
                 <div class="flex"><span class="text-[#fdbe19] text-2xl">*****</span></div>
-                <span class="text-sm text-gray-600 ml-2">456 reviews</span>
+                <span class="text-sm text-gray-600 ml-2">289 reviews</span>
               </div>
               <div class="flex justify-between items-center">
                 <div>
-                  <span class="text-2xl font-bold text-[#0a2540]">GH 250</span>
+                  <span class="text-2xl font-bold text-[#0a2540]">$200</span>
                   <span class="text-sm text-gray-600">/night</span>
                 </div>
-                <button
+                <button onclick="event.stopPropagation(); viewHotel(3)"
                   class="bg-[#fdbe19] text-[#0a2540] px-4 py-2 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
                   Book Now
                 </button>

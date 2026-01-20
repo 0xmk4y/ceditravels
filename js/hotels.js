@@ -81,7 +81,7 @@ const allHotels = [
         originalPrice: 135,
         rating: 4,
         reviews: 201,
-        amenities: ["Pool", "WiFi", "Restaurant", "Gym"],
+        amenities: ["Pool", "Restaurant", "Gym"],
         images: [
             "https://images.unsplash.com/photo-1658590842120-2a0b2a68c725?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
         ],
@@ -255,20 +255,12 @@ function renderHotels() {
 
     container.innerHTML = filteredHotels.map(hotel => `
         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
-               <div class="relative w-full h-56 lg:h-64 group overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+               <div class="relative w-full h-72 lg:h-96 group overflow-hidden">
                     ${createImageCarousel(hotel)}
-                    <button class="absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full z-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 
-                                    5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 
-                                    1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                    </button>
                 </div>
                 
-                <div class="lg:col-span-2 p-6">
+                <div class="p-6">
                     <div class="flex flex-col h-full">
                         <div class="flex justify-between items-start mb-3">
                             <div>
@@ -280,9 +272,9 @@ function renderHotels() {
                                     </svg>
                                     ${hotel.location}, Ghana
                                 </div>
-                                <div class="flex items-center space-x-2">
-                                    <div class="flex">${createStarRating(hotel.rating)}</div>
-                                    <span class="text-sm text-gray-600">(${hotel.reviews} reviews)</span>
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <div class="flex text-sm">${createStarRating(hotel.rating)}</div>
+                                    <span class="text-sm text-gray-600 ml-1">(${hotel.reviews} reviews)</span>
                                 </div>
                             </div>
                             
@@ -309,9 +301,6 @@ function renderHotels() {
                         <div class="mt-auto flex justify-between items-center">
                             <span class="text-sm text-green-600 font-medium">Free Cancellation</span>
                             <div class="flex">
-                                <button onclick="viewHotelDetails(${hotel.id})" class="border border-[#0a2540] text-[#0a2540] px-4 py-2 rounded-lg font-semibold hover:bg-gray-50 transition">
-                                    View Details
-                                </button>
                                 <button onclick="bookHotel(${hotel.id})" class="bg-[#fdbe19] text-[#0a2540] px-4 py-2 rounded-lg font-semibold hover:bg-[#fdbe19]/90 transition">
                                     Book Now
                                 </button>
@@ -328,15 +317,40 @@ function renderHotels() {
 
 // Filter Hotels
 function filterHotels() {
-    const location = document.getElementById('locationFilter').value;
-    const price = document.getElementById('priceFilter').value;
-    const rating = document.getElementById('ratingFilter').value;
-    const amenity = document.getElementById('amenityFilter').value;
-    const sortBy = document.getElementById('sortBy').value;
+    const location = document.getElementById('locationFilter')?.value || 'all';
+    const destination = document.getElementById('destinationFilter')?.value?.toLowerCase() || '';
+    const price = document.getElementById('priceFilter')?.value || 'all';
+    const sortBy = document.getElementById('sortBy')?.value || 'recommended';
+
+    // Get checked rating checkboxes
+    const rating5Checked = document.getElementById('rating-5')?.checked;
+    const rating4Checked = document.getElementById('rating-4')?.checked;
+    const rating3Checked = document.getElementById('rating-3')?.checked;
+    const hasRatingFilter = rating5Checked || rating4Checked || rating3Checked;
+    
+    // Get checked amenity checkboxes
+    const amenityWifiChecked = document.getElementById('amenity-wifi')?.checked;
+    const amenityPoolChecked = document.getElementById('amenity-pool')?.checked;
+    const amenitySpaChecked = document.getElementById('amenity-spa')?.checked;
+    const amenityRestaurantChecked = document.getElementById('amenity-restaurant')?.checked;
+    const checkedAmenities = [];
+    if (amenityWifiChecked) checkedAmenities.push('WiFi');
+    if (amenityPoolChecked) checkedAmenities.push('Pool');
+    if (amenitySpaChecked) checkedAmenities.push('Spa');
+    if (amenityRestaurantChecked) checkedAmenities.push('Restaurant');
 
     filteredHotels = allHotels.filter(hotel => {
+        // Destination filter (search by hotel name or location)
+        if (destination) {
+            const hotelName = hotel.name.toLowerCase();
+            const hotelLocation = hotel.location.toLowerCase();
+            if (!hotelName.includes(destination) && !hotelLocation.includes(destination)) {
+                return false;
+            }
+        }
+
         // Location filter
-        if (location !== 'all' && hotel.location !== location) return false;
+        if (location !== 'all' && hotel.location.toLowerCase() !== location.toLowerCase()) return false;
 
         // Price filter
         if (price !== 'all') {
@@ -348,18 +362,19 @@ function filterHotels() {
             }
         }
 
-        // Rating filter
-        if (rating !== 'all' && hotel.rating < parseInt(rating)) return false;
+        // Rating filter (check if hotel rating matches any checked rating)
+        if (hasRatingFilter) {
+            let ratingMatch = false;
+            if (rating5Checked && hotel.rating >= 5) ratingMatch = true;
+            if (rating4Checked && hotel.rating >= 4 && hotel.rating < 5) ratingMatch = true;
+            if (rating3Checked && hotel.rating >= 3 && hotel.rating < 4) ratingMatch = true;
+            if (!ratingMatch) return false;
+        }
 
-        // Amenity filter
-        if (amenity !== 'all') {
-            const amenityMap = {
-                'pool': 'Pool',
-                'wifi': 'WiFi',
-                'spa': 'Spa',
-                'restaurant': 'Restaurant'
-            };
-            if (!hotel.amenities.includes(amenityMap[amenity])) return false;
+        // Amenity filter (hotel must have all checked amenities)
+        if (checkedAmenities.length > 0) {
+            const hasAllAmenities = checkedAmenities.every(amenity => hotel.amenities.includes(amenity));
+            if (!hasAllAmenities) return false;
         }
 
         return true;
@@ -377,6 +392,18 @@ function filterHotels() {
     renderHotels();
 }
 
+// Apply search filters (called from filter sidebar button)
+function applySearchFilters() {
+    // Store dates in localStorage for use in hotel-rooms.html
+    const checkIn = document.getElementById('checkinFilter')?.value;
+    const checkOut = document.getElementById('checkoutFilter')?.value;
+    
+    if (checkIn) localStorage.setItem('checkInDate', checkIn);
+    if (checkOut) localStorage.setItem('checkOutDate', checkOut);
+    
+    filterHotels();
+}
+
 function viewHotelDetails(id) {
     bookHotel(id);
 }
@@ -385,7 +412,15 @@ function bookHotel(id) {
     const hotel = allHotels.find(h => h.id === id);
     if (hotel) {
         localStorage.setItem('selectedHotel', JSON.stringify(hotel));
-        window.location.href = 'hotel-booking.html';
+        
+        // Get dates from filter inputs or use defaults
+        const checkIn = document.getElementById('checkinFilter')?.value || '';
+        const checkOut = document.getElementById('checkoutFilter')?.value || '';
+        
+        if (checkIn) localStorage.setItem('checkInDate', checkIn);
+        if (checkOut) localStorage.setItem('checkOutDate', checkOut);
+        
+        window.location.href = 'hotel-rooms.html';
     }
 }
 
@@ -394,5 +429,49 @@ function toggleMobileMenu() {
     if (menu) menu.classList.toggle('hidden');
 }
 
+// Read URL parameters and populate filters
+function loadURLParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const destination = urlParams.get('destination');
+    const checkin = urlParams.get('checkin');
+    const checkout = urlParams.get('checkout');
+    const guests = urlParams.get('guests');
+    
+    if (destination) {
+        const destinationFilter = document.getElementById('destinationFilter');
+        if (destinationFilter) destinationFilter.value = destination;
+    }
+    
+    if (checkin) {
+        const checkinFilter = document.getElementById('checkinFilter');
+        if (checkinFilter) {
+            checkinFilter.value = checkin;
+            localStorage.setItem('checkInDate', checkin);
+        }
+    }
+    
+    if (checkout) {
+        const checkoutFilter = document.getElementById('checkoutFilter');
+        if (checkoutFilter) {
+            checkoutFilter.value = checkout;
+            localStorage.setItem('checkOutDate', checkout);
+        }
+    }
+    
+    if (guests) {
+        const guestsFilter = document.getElementById('guestsFilter');
+        if (guestsFilter) guestsFilter.value = guests;
+    }
+    
+    // Apply filters if any URL params exist
+    if (destination || checkin || checkout || guests) {
+        filterHotels();
+    }
+}
+
 // Initialize
-renderHotels();
+document.addEventListener('DOMContentLoaded', function() {
+    loadURLParameters();
+    renderHotels();
+});

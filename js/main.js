@@ -237,7 +237,7 @@ function viewHotel(id) {
     const hotel = popularHotels.find(h => h.id === id);
     if (hotel) {
         localStorage.setItem('selectedHotel', JSON.stringify(hotel));
-        window.location.href = 'hotel-booking.html';
+        window.location.href = 'hotel-rooms.html';
     }
 }
 

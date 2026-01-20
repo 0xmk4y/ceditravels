@@ -1,1 +1,48 @@
-https://booking.ceditravels.com/ADEATriennale2025-HOTELS
+
+
+Events Booking page
+
+   Destination:
+Event Start Date: for 
+Room Layout: <select name="RoomType" id="RoomType" class="styled-dropdown" onchange="CalcRoom();">
+										<option value="1" selected="">
+											Banquet - 5' Tables (8 per) 
+										</option>
+										<option value="2">
+											Banquet - 6' Tables (10 per) 
+										</option>
+										<option value="14">
+											Crescent Rounds (5-7 per)
+										</option>
+										<option value="13">
+											Classroom
+										</option>
+										<option value="9">
+											Theater
+										</option>
+										<option value="3">
+											Boardroom
+										</option>
+										<option value="4">
+											Hollow Square
+										</option>
+										<option value="5">
+											Reception (no seating)
+										</option>
+										<option value="10">
+											Convention - 8x10
+										</option>
+										<option value="11">
+											Convention - 10x10
+										</option>
+										<option value="12">
+											U-Shape
+										</option>
+										<option value="6">
+											Registration Desk
+										</option>
+									</select>
+No. of People:
+Rental Time Frame:
+No. of Sleeping Rooms:
+Min. Room Size:
