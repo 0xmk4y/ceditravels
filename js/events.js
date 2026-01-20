@@ -183,7 +183,7 @@ function renderVenues() {
                     ` : ''}
                 </div>
                 
-                <div class="p-6 flex flex-col justify-between">
+                <div class="p-3 flex flex-col justify-between">
                     <div>
                         <div class="flex items-start justify-between mb-3">
                             <div class="flex-1">
